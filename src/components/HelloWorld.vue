@@ -36,12 +36,13 @@ export default {
     /**
      * 当前实例，使用方式类似于 vue2 单个实例中的this
      * （若data定义在setup同级，可通过instance访问）
-     * （包含context中的可用属性，比context更全）
+     * （instance.setupContext 就是 context）
+     * instance.proxy可访问全局属性 globalProperties
      */
     const instance = getCurrentInstance()
 
     // context包括（attrs、emit、expose、slot）,可解构出使用
-    console.log('setup', props, context, instance)
+    console.log('setup', props, context, instance, instance.proxy.$moment())
 
     // 创建响应式变量通过ref
     let date = ref(111)
