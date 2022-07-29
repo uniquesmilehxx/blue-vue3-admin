@@ -10,8 +10,6 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/zh-cn';
 dayjs.locale('zh-cn');
 
-
-
 export default {
   name: 'App',
   setup () {
@@ -28,5 +26,7 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  height: 100%;
+  overflow: hidden;
 }
 </style>
