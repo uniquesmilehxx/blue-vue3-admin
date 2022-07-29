@@ -20,18 +20,25 @@
       通过组件通讯修改父组件data:
       <a-button @click="changeName('小王')">点击修改父组件为小王</a-button>
     </div>
+    <!-- setup的使用展示组件 -->
+    <setup-script :age="18" @setAge="setAge"></setup-script>
   </div>
 </template>
 
 <script>
 import { onMounted, getCurrentInstance, ref } from 'vue'
 import { message } from 'ant-design-vue'
+import SetupScript from './setup-script'
 import moment from 'moment'
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
   },
+  components: {
+    SetupScript
+  },
+  emits: ['changeName'],
   setup (props, context) {
     /**
      * 当前实例，使用方式类似于 vue2 单个实例中的this
@@ -68,12 +75,17 @@ export default {
       context.emit('changeName', value)
     }
 
+    const setAge = function () {
+      console.log('setAge')
+    }
+
     return {
       // 暴露出去
       date,
       num,
       changeNum,
-      changeName
+      changeName,
+      setAge
     }
   }
 }

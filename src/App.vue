@@ -1,9 +1,6 @@
 <template>
   <a-config-provider :locale="locale">
-    <div id="app">
-      <router-view/>
-      
-    </div>
+    <router-view />
   </a-config-provider>
 </template>
 
@@ -31,7 +28,5 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

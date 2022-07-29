@@ -1,9 +1,8 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router'
+import store from './store'
 const app = createApp(App)
-
-// router
-import router from '@/router/index'
 
 // Antd
 import Antd from 'ant-design-vue';
@@ -22,5 +21,6 @@ import '@/assets/css/common.less'
 // 使用插件（可链式调用use）
 app
 .use(router)
+.use(store)
 .use(Antd)
 .mount('#app')
